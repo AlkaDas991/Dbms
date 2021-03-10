@@ -1,0 +1,11 @@
+<%@page import = "Project.ConnectionProvider" %>
+<%@page import = "java.sql.*" %>
+<%
+	String rollNo = request.getParamer("rollNo");
+	String DAA = request.getParamer("DAA");
+	String DBMS = request.getParamer("DBMS");
+	String COA = request.getParamer("COA");
+	String DM = request.getParamer("DM");
+	String AMC = request.getParamer("AMC");
+	String CS = request.getParamer("CS");
+%>

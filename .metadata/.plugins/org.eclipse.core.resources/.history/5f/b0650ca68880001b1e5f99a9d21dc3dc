@@ -1,0 +1,11 @@
+<%@page import="Project.ConnectionProvider" %>
+<%@page import="java.sql.*" %>
+<%
+String course = request.getParameter("course");
+String course = request.getParameter("branch");
+String course = request.getParameter("rollNo");
+String course = request.getParameter("name");
+String course = request.getParameter("fatherName");
+String course = request.getParameter("motherName");
+String course = request.getParameter("gender");
+%>
