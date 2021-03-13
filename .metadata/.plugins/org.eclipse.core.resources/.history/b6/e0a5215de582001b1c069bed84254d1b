@@ -1,0 +1,12 @@
+package next.xadmin.login.database;
+import Project.ConnectionProvider;
+import java.sql.*;
+public class LoginDao {
+	try {
+		Connection con =Project.ConnectionProvider.getCon();
+		
+	}
+	catch(Exception e) {
+		
+	}
+}

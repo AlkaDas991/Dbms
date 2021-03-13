@@ -8,16 +8,21 @@ color:red;
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">   
   <link rel="stylesheet" type="text/css" href="style.css">  
 </head>
-<body></body>
-    <form method="post" action="studentHome.jsp">
+<body>
+    <form method="post" action="Studentloginservlet">
     <div class="login-box">
-        <center><img src="result.png" width="200" height="150"></center>
-         <h3><center>Incorrect Roll Number <br>Try again</center></h3>
+    <img src="user.png" class="avatar">
+        <h3><center>Incorrect Username or Password</center></h3>
+            <p>Username</p>
+            <input type="text" name="username" placeholder="Enter Username" required="required">
+            <p>Password</p>
+            <input type="password" name="password" placeholder="Enter Password" required="required">
+            <input type="submit" name="submit" value="Login">
+            <center><h1><a href="index.html">Back</a></h1></center>
+           </div>
            
-            <input type="text" name="rollNo" placeholder="Enter Roll Number" required="required">
-            <input type="submit" name="submit" value="Search">    
+           
             </form>
-              <center><h1><a href="index.html">Back</a></h1></center>
-        </div>   
-   
+              
+    </body>
 </html>

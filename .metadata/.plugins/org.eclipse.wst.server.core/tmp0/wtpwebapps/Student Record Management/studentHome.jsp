@@ -1,194 +1,172 @@
-<%@page import ="Project.ConnectionProvider" %>
-<%@page import ="java.sql.*" %>
-<%
-	try{
-		String rollNo = request.getParameter("rollNo");
-		Connection con = ConnectionProvider.getCon();
-		Statement st = con.createStatement();
-		ResultSet rs = st.executeQuery("select * from student inner join result on student.rollNo = result.rollNo and student.rollNo = '"+rollNo+"'");                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
-		if(rs.next()){
-			
-%>
-<img src="logo.png"  align="left"width="150" height="150">
-<center><img src="dgi.png" width="150" height="150">
-<img src="apj sir.png" align="right"  width="150" height="150"></center>
-    <a href="dgiOneView.html">Back</a>
-  <hr class="new1">
-<style>
-table{
-  width:100%;
-  table-layout: fixed;
-}
-th{
-  padding: 20px 15px;
-  text-align: left;
-  font-weight: 500;
-  font-size: 12px;
-  color: #fff;
-  text-transform: uppercase;
- border: 2px solid rgba(255,255,255,0.3);
-}
-
-
-/* demo styles */
-
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
-body{
-  background: -webkit-linear-gradient(left, #25c481, #25b7c4);
-  background: linear-gradient(to right, #25c481, #25b7c4);
-  font-family: 'Roboto', sans-serif;
-}
-
-</style>
-  <!--for demo wrap-->
-  <div class="tbl-header">
-    <table cellpadding="0" cellspacing="0" border="0">
-      <thead>
-        <tr>
-          <th>institution Name: IIIT</th>
-          <th>Course Name:<%=rs.getString(1)%></th>
-          <th>Branch Name:<%=rs.getString(2)%></th>
-          <th>RollNo:<%=rs.getString(3)%></th>
-          <th>Print Screen</th>
-        </tr>
-      </thead>
-      <thead>
-        <tr>
-          <th>Name: <%=rs.getString(4)%></th>
-          <th>Father Name: <%=rs.getString(5)%></th>
-          <th>Mother Name: <%=rs.getString(6)%></th>
-          <th>Gender: <%=rs.getString(7)%></th>
-          <th><a title="print screen" alt="print screen" onclick="window.print();" target="_blank" style="cursor:pointer;"><center><img src="print.png"></center></a></th>
-        </tr>
-      </thead>
-    </table>
+<%@include file="header.html"%>
+<!DOCTYPE html>
+<html>
+<title>IIIT,BBSR</title>
+<body>
+<img src="logo.png"  align="left"width="100" height="100">
+<div class="w3-container">
+  <div class="w3-bar w3-black">
+    <button class="w3-bar-item w3-button tablink w3-red" onclick="openCity(event,'London')">View My Result</button>
+    <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Paris')">Change Password</button>
+     <a href="dgiOneView.jsp" class="w3-bar-item w3-button tablink">Logout</a>
   </div>
-<style>
-html {
-  font-family:arial;
-  font-size: 25px;
-}
+  
+  <div id="London" class="w3-container city">
+  <br>
+   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Alright Include the above in your HEAD tag ---------->
 
-td {
-  border: 2px solid #726E6D;
-  padding: 15px;
-  color:black;
-  text-align:center;
-}
-
-thead{
-  font-weight:bold;
-  text-align:center;
-  background: #625D5D;
-  color:white;
-}
-
-table {
-  border-collapse: collapse;
-}
-
-.footer {
-  text-align:right;
-  font-weight:bold;
-}
-
-tbody >tr:nth-child(odd) {
-  background: #D1D0CE;
-}
-
-</style>
+<!doctype html>
+<html lang="en">
 <head>
-  <hr class="new1">
+    <!--OK Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+
+
+
+    <link rel="icon" href="Favicon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
 <body>
-  <table>
-    <thead>
-      <tr>
-        <td colspan="3">Course</td>
-        <td rowspan="2">Type</td>
-        <td rowspan="2">Full Marks</td>
-        <td rowspan="2">Passing Marks</td>
-        <td rowspan="2">Obtained Marks</td>
-        
-      </tr>
-      <tr>
-        <td>Code </td>
-        <td colspan="2"> Name </td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>NAS101</td>
-        <td colspan="2">DBMS</td>
-        <td>Theory</td>
-        <td>100</td>
-        <td> 30 </td>
-        <td><%=rs.getString(9)%></td>
-      </tr>
-      <tr>
-        <td>NAS102</td>
-        <td colspan="2">DAA</td>
-        <td>Theory</td>
-        <td>100</td>
-        <td>30</td>
-        <td><%=rs.getString(10)%></td>
-      </tr>
-      <tr>
-        <td>NAS103</td>
-        <td colspan="2">COA</td>
-        <td>Theory</td>
-        <td>100</td>
-        <td> 30 </td>
-        <td><%=rs.getString(11)%></td>
-      </tr>
-      <tr>
-        <td>NEE101</td>
-        <td colspan="2">DM</td>
-        <td>Theory</td>
-        <td>100</td>
-        <td> 30 </td>
-        <td><%=rs.getString(12)%></td>
-      </tr>
-      <tr>
-        <td>NEC101</td>
-        <td colspan="2">AMC</td>
-        <td>Theory</td>
-        <td>100</td>
-        <td> 30 </td>
-        <td><%=rs.getString(13)%></td>
-      </tr>
-      <tr>
-        <td>NAS152</td>
-        <td colspan="2">CS</td>
-        <td>Theory</td>
-        <td>100</td>
-        <td>30</td>
-        <td><%=rs.getString(14)%></td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-        <td colspan="4" class="footer">Total Marks</td>
-        <td>600</td>
-        <td>180</td>
-        <td<%int sum = rs.getInt(9)+rs.getInt(10)+rs.getInt(11)+rs.getInt(12)+rs.getInt(13)+rs.getInt(14); out.print(sum);%>></td> 
-      </tr>
-      <tr>
-        <td colspan="4" class="footer">Percentage</td>
-        <td colspan="3"><%out.println((sum*100)/600);%></td>
-      </tr>
-  </table>
-    <hr class="new1">
-  <center><h6>Note: Institution doesn't own for the errors or omissions, if any, in this statement.
-Designed & Developed by BTech Days Team</h6></center>
-  <hr class="new1">
-<center><h6>All Right Reserved @ BTech Days :: 2015-2020</h6></center> 
-  <hr class="new1">
+<main class="my-form">
+    <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">View My Results</div>
+                        <div class="card-body">
+                            <form name="my-form" onsubmit="return validform()" action="eachResult.jsp" method="post">
+                                <div class="form-group row">
+                                    <label for="full_name" class="col-md-4 col-form-label text-md-right">Name</label>
+                                    <div class="col-md-6">
+                                        <input type="text"  class="form-control" name="name">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="full_name" class="col-md-4 col-form-label text-md-right">Roll No</label>
+                                    <div class="col-md-6">
+                                        <input type="text"  class="form-control" name="rollNo">
+                                    </div>
+                                </div>
+
+                                
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-primary">
+                                        Save
+                                        </button>
+                                    </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </body>
-<%}
-		else{
-			response.sendRedirect("errorDgiOneView.html");
-		}
-	}
-	catch(Exception e){}
-%>
+  </div>
+<!-- 2rd part -->
+
+  <div id="Paris" class="w3-container city" style="display:none">
+  <br>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+
+
+
+    <link rel="icon" href="Favicon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+</head>
+<body>
+<main class="my-form">
+    <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">Change Password</div>
+                        <div class="card-body">
+                            <form name="my-form" onsubmit="return validform()" action="changePassword.jsp" method="">
+                                <div class="form-group row">
+                                    <label for="full_name" class="col-md-4 col-form-label text-md-right">Current Password</label>
+                                    <div class="col-md-6">
+                                        <input type="password"class="form-control" name="currPass">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="full_name" class="col-md-4 col-form-label text-md-right">New Password</label>
+                                    <div class="col-md-6">
+                                        <input type="password"  class="form-control" name="newPass">
+                                    </div>
+                                </div>
+
+                               
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-primary">
+                                       Save
+                                        </button>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <br>
+    </div>
+
+</main>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+</html> 
+  </div>
+<br><br><br><br><br><br>
+<center><h5>Happy Coding!!</h5></center> 
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

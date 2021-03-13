@@ -1,0 +1,26 @@
+<%
+String username1 = request.getParameter("username");
+String password1 = request.getParameter("password");
+//hard-coded,use db
+if(username1.equals("admin") && password1.equals("admin")){
+	response.sendRedirect("adminHome.jsp");
+}
+else{
+	response.sendRedirect("errorAdminLogin.html");
+}
+%>
+<%@page import="Project.ConnectionProvider" %>
+<%@page import="java.sql.*" %>
+<%
+String username1 = request.getParameter("username");
+String password1 = request.getParameter("password");
+try{
+	Connection con = Project.ConnectionProvider.getCon();
+	Statement st = con.createStatement();
+	st.executeUpdate("insert into student values('"+course+"','"+branch+"','"+rollNo+"','"+name+"','"+fatherName+"','"+motherName+"','"+gender+"')");
+	response.sendRedirect("adminHome.jsp");
+}
+catch(Exception e){
+	out.println(e);
+}
+%>
