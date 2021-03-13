@@ -1,0 +1,31 @@
+<%
+String username1 = request.getParameter("username");
+String password1 = request.getParameter("password");
+//hard-coded,use db
+if(username1.equals("admin") && password1.equals("admin")){
+	response.sendRedirect("adminHome.jsp");
+}
+else{
+	response.sendRedirect("errorAdminLogin.html");
+}
+%>
+<%@page import="Project.ConnectionProvider" %>
+<%@page import="java.sql.*" %>
+<%
+String username1 = request.getParameter("username");
+String password1 = request.getParameter("password");
+try{
+	Connection con = Project.ConnectionProvider.getCon();
+	PreparedStatement pst = conn.prepareStatement("Select user,pass from login where user=? and pass=?");
+    pst.setString(1, username1);
+    pst.setString(2, password1);
+    ResultSet rs = pst.executeQuery();                        
+    if(rs.next())           
+    	response.sendRedirect("adminHome.jsp");        
+    else
+       out.println("Invalid login credentials");
+}
+catch(Exception e){
+	out.println(e);
+}
+%>

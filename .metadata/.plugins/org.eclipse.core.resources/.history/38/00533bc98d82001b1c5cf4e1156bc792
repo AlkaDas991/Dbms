@@ -1,0 +1,19 @@
+<%@page import="Project.ConnectionProvider" %>
+<%@page import="java.sql.*" %>
+<%
+String username1 = request.getParameter("username");
+String password1 = request.getParameter("password");
+try{
+	Connection con = Project.ConnectionProvider.getCon();
+	PreparedStatement pst = conn.prepareStatement("select * from adminlogin where user=? and pass=?");
+    pst.setString(1, username1);
+    pst.setString(2, password1);
+    ResultSet rs = pst.executeQuery();                        
+    if(rs.next())           
+    	response.sendRedirect("adminHome.jsp");        
+    else
+    	response.sendRedirect("errorAdminLogin.html");}
+catch(Exception e){
+	out.println(e);
+}
+%>

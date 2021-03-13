@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="next.xadmin.login.bean.LoginBean"/>
+<fullyQualifiedTypeName name="Project.ConnectionProvider"/>
+<fullyQualifiedTypeName name="com.sun.corba.se.pept.transport.Connection"/>
+<fullyQualifiedTypeName name="next.xadmin.login.database.LoginDao"/>
+<fullyQualifiedTypeName name="next.xadmin.login.database.StudentLoginDao"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,9 @@
+package next.xadmin.login.database;
+
+import Project.ConnectionProvider;
+
+public class LoginDao {
+	try {
+		Connection con = ConnectionProvider.getCon();
+	}
+}
